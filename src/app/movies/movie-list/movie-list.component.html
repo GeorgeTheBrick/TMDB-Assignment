@@ -1,0 +1,20 @@
+<div class="list-container">
+  <div class="movie-list-wrapper">
+    <span class="no-results" *ngIf="totalResults < 1"
+      >No items were found that match your query.</span
+    >
+    <app-movie-item
+      *ngFor="let movieEl of movieList"
+      [movieItem]="movieEl"
+    ></app-movie-item>
+
+    <button
+      [ngStyle]="{ display: page < maxPages ? 'block' : 'none' }"
+      class="btn btn-load-more"
+      (click)="loadMore()"
+      #loadBtn
+    >
+      Load More
+    </button>
+  </div>
+</div>

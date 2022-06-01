@@ -1,0 +1,16 @@
+.header-container {
+  position: relative;
+}
+
+.header {
+  position: fixed;
+  height: 64px;
+  width: 100%;
+  background-color: rgb(3, 37, 65);
+  transition: all 0.2s;
+  z-index: 999;
+}
+
+.hide-header {
+  transform: translateY(-64px);
+}

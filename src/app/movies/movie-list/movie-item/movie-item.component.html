@@ -1,0 +1,51 @@
+<div class="movie-wrapper">
+  <div class="more-options">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16.2"
+      height="16.2"
+      fill="currentColor"
+      class="bi bi-three-dots"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"
+      />
+    </svg>
+  </div>
+  <div class="image">
+    <img
+      class="movie-image"
+      [src]="
+        movieItem.poster_path
+          ? imageUrl + movieItem.poster_path
+          : '../../../../assets/image-not-found-1-scaled-1150x647.png'
+      "
+      alt=""
+    />
+    <div
+      class="score-wrapper"
+      [ngStyle]="{
+        'border-color':
+          movieItem.vote_average > 7.0
+            ? 'rgb(79, 155, 99)'
+            : 'rgb(210, 196, 1)',
+        filter: !movieItem.vote_average ? 'grayscale(1)' : 'grayscale(0)'
+      }"
+    >
+      <div
+        class="score"
+        [ngStyle]="{ 'margin-right': !movieItem.vote_average ? '0px' : '3px' }"
+      >
+        {{ !movieItem.vote_average ? "NR" : movieItem.vote_average * 10 }}
+      </div>
+      <span class="percent">{{ !movieItem.vote_average ? "" : "%" }}</span>
+    </div>
+  </div>
+  <div class="movie-info">
+    <div class="movie-title">{{ movieItem.title }}</div>
+    <div class="movie-release">
+      {{ movieItem.release_date | date: "dd LLL yyyy" }}
+    </div>
+  </div>
+</div>

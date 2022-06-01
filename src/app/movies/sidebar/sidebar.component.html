@@ -1,0 +1,47 @@
+<div class="sidebar-wrapper" #sidebar>
+  <div class="filter-panel">
+    <h2 class="panel-title" (click)="hideFilter = !hideFilter">
+      Filters
+      <svg
+        [ngStyle]="{
+          transform: hideFilter ? 'rotate(-90deg)' : 'rotate(0deg)'
+        }"
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-chevron-down"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
+        />
+      </svg>
+    </h2>
+    <div
+      class="filter-genres"
+      [ngStyle]="{ display: hideFilter ? 'none' : 'flex' }"
+    >
+      <h2 class="filter-title">Genres</h2>
+      <ul class="genres-list">
+        <app-genres
+          (addGenreId)="onGenreAdded($event)"
+          *ngFor="let genre of genres"
+          [genreItem]="genre"
+        ></app-genres>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="btn-wrapper">
+  <button
+    [disabled]="isDisabled"
+    [ngStyle]="{ cursor: isDisabled ? 'default' : 'pointer' }"
+    [ngClass]="{ 'btn-fixed': isButtonFixed }"
+    class="btn btn-submit-filter"
+    (click)="submitFilter()"
+  >
+    Search
+  </button>
+</div>

@@ -1,0 +1,29 @@
+.genre-item {
+  display: inline-block;
+  margin-right: 6px;
+  margin-bottom: 8px;
+}
+
+.genre-link {
+  display: inline-block;
+  font-size: 1.4rem;
+  text-decoration: none;
+  padding: 4px 12px;
+  color: #000;
+  border: 1px solid #9e9e9e;
+  border-radius: 14px;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.active {
+  color: #fff !important;
+  background-color: rgb(1, 180, 228);
+  border-color: rgb(1, 180, 228);
+}
+
+.genre-link:hover {
+  color: #fff;
+  background-color: rgb(1, 180, 228);
+  border-color: rgb(1, 180, 228);
+}

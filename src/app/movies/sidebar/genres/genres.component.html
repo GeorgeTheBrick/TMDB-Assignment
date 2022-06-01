@@ -1,0 +1,12 @@
+<li
+  class="genre-item"
+  (click)="emitArray(genreItem.id.toString())"
+  (click)="this.toggle = !this.toggle"
+>
+  <span
+    class="genre-link"
+    [ngClass]="{ active: toggle }"
+    attr.data-value="{{ genreItem.id }}"
+    >{{ genreItem.name }}</span
+  >
+</li>
